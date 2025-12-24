@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern Dark Theme Palette */
+  --background: #0f172a; /* Slate 900 */
+  --foreground: #f8fafc; /* Slate 50 */
+  
+  --primary: #0ea5e9; /* Sky 500 */
+  --primary-foreground: #ffffff;
+  
+  --secondary: #8b5cf6; /* Violet 500 */
+  --secondary-foreground: #ffffff;
+  
+  --accent: #f43f5e; /* Rose 500 */
+  --accent-foreground: #ffffff;
+
+  --card: #1e293b; /* Slate 800 */
+  --card-foreground: #f8fafc;
+
+  --border: #334155; /* Slate 700 */
+  
+  /* Gradients */
+  --background-start: #0f172a;
+  --background-end: #020617;
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(
+      to bottom right,
+      var(--background-start),
+      var(--background-end)
+    );
+  min-height: 100vh;
+  font-family: var(--font-cairo), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; 
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass {
+    @apply bg-slate-900/70 backdrop-blur-md border border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-primary/50 transition-all duration-300;
+  }
+}
